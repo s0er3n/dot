@@ -16,7 +16,7 @@ local config = {
                 pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
                 skip_prompts = false, -- skip prompts about breaking changes
                 show_changelog = true, -- show the changelog after performing an update
-                auto_reload = false, -- automatically reload and sync packer after a successful update
+                auto_reload = true, -- automatically reload and sync packer after a successful update
                 auto_quit = false, -- automatically quit the current session after a successful update
                 -- remotes = { -- easily add new remotes to track
                 --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
@@ -46,7 +46,7 @@ local config = {
                         number = true, -- sets vim.opt.number
                         spell = false, -- sets vim.opt.spell
                         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-                        wrap = false, -- sets vim.opt.wrap
+                        wrap = true, -- sets vim.opt.wrap
                 },
                 g = {
                         mapleader = " ", -- sets vim.g.mapleader
@@ -71,11 +71,11 @@ local config = {
 
         -- Set dashboard header
         header = {
-                "    ███    ██ ██    ██ ██ ███    ███",
-                "    ████   ██ ██    ██ ██ ████  ████",
-                "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-                "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-                "    ██   ████   ████   ██ ██      ██",
+                "███    ██ ██    ██ ██ ███    ███",
+                "████   ██ ██    ██ ██ ████  ████",
+                "██ ██  ██ ██    ██ ██ ██ ████ ██",
+                "██  ██ ██  ██  ██  ██ ██  ██  ██",
+                "██   ████   ████   ██ ██      ██",
         },
 
         -- Default theme configuration
@@ -117,7 +117,7 @@ local config = {
                         symbols_outline = false,
                         telescope = true,
                         treesitter = true,
-                        vimwiki = false,
+                        vimwiki = true,
                         ["which-key"] = true,
                 },
         },
@@ -260,7 +260,7 @@ local config = {
                         return config -- return final config table
                 end,
                 treesitter = { -- overrides `require("treesitter").setup(...)`
-                        ensure_installed = { "lua", "python" },
+                        ensure_installed = { "lua", "python", "rust", "typescript" },
                         -- stolen from kickstart.nvim
                         incremental_selection = {
                                 enable = true,
@@ -273,14 +273,14 @@ local config = {
                 },
                 -- use mason-lspconfig to configure LSP installations
                 ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
-                        -- ensure_installed = { "sumneko_lua" },
+                        ensure_installed = { "sumneko_lua", "python-lsp-server" },
                 },
                 -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
                 ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
-                        -- ensure_installed = { "prettier", "stylua" },
+                        ensure_installed = { "prettier", "stylua" },
                 },
                 ["mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
-                        -- ensure_installed = { "python" },
+                        ensure_installed = { "python" },
                 },
         },
 
