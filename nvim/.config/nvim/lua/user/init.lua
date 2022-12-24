@@ -4,7 +4,8 @@
 -- You can think of a Lua "table" as a dictionary like data structure the
 -- normal format is "key = value". These also handle array like data structures
 -- where a value with no key simply has an implicit numeric key
-local config = {
+--
+config = {
 
         -- Configure AstroNvim updates
         updater = {
@@ -26,13 +27,13 @@ local config = {
         },
 
         -- Set colorscheme to use
-        colorscheme = "catppuccin-mocha",
+        colorscheme = "catppuccin",
 
         -- Add highlight groups in any theme
         highlights = {
-                -- init = { -- this table overrides highlights in all themes
-                --   Normal = { bg = "#000000" },
-                -- }
+                init = { -- this table overrides highlights in all themes
+                        -- Normal = { bg = "#000000" },
+                },
                 -- duskfox = { -- a table of overrides/changes to the duskfox theme
                 --   Normal = { bg = "#000000" },
                 -- },
@@ -51,7 +52,7 @@ local config = {
                 g = {
                         mapleader = " ", -- sets vim.g.mapleader
                         autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
-                        cmp_enabled = true, -- enable completion at start
+                        cmp_enabled = false, -- enable completion at start
                         autopairs_enabled = true, -- enable autopairs at start
                         diagnostics_enabled = true, -- enable diagnostics at start
                         status_diagnostics_enabled = true, -- enable diagnostics in statusline
@@ -211,7 +212,25 @@ local config = {
         -- Configure plugins
         plugins = {
                 init = {
-                        "catppuccin/nvim",
+                        {
+                                "catppuccin/nvim",
+                                config = require("catppuccin").setup {
+                                        styles = {
+                                                comments = { "italic" },
+                                                conditionals = { "italic" },
+                                                loops = {},
+                                                functions = {},
+                                                keywords = {},
+                                                strings = {},
+                                                variables = {},
+                                                numbers = {},
+                                                booleans = {},
+                                                properties = {},
+                                                types = {},
+                                                operators = {},
+                                        },
+                                },
+                        },
 
                         {
                                 "kylechui/nvim-surround",
@@ -222,6 +241,8 @@ local config = {
                                         }
                                 end,
                         },
+
+                        "github/copilot.vim",
                         -- You can disable default plugins as follows:
                         -- ["goolord/alpha-nvim"] = { disable = true },
 
@@ -265,15 +286,15 @@ local config = {
                         incremental_selection = {
                                 enable = true,
                                 keymaps = {
-                                        init_selection = '<c-space>',
-                                        node_incremental = '<c-space>',
-                                        node_decremental = '<c-backspace>',
+                                        init_selection = "<c-space>",
+                                        node_incremental = "<c-space>",
+                                        node_decremental = "<c-backspace>",
                                 },
                         },
                 },
                 -- use mason-lspconfig to configure LSP installations
                 ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
-                        ensure_installed = { "sumneko_lua", "python-lsp-server" },
+                        ensure_installed = { "sumneko_lua", "pylsp" },
                 },
                 -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
                 ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
