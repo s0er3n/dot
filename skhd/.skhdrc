@@ -1,0 +1,35 @@
+alt - return : kitty --single-instance -d ~
+
+alt + shift - return : open -a Safari
+
+alt - w : skhd --key "cmd - w"
+
+alt - 1 : yabai -m space --focus 1
+alt - 2 : yabai -m space --focus 2
+alt - 3 : yabai -m space --focus 3
+alt - 4 : yabai -m space --focus 4
+
+shift + alt - 1 : yabai -m window --space 1; yabai -m space --focus 1
+shift + alt - 2 : yabai -m window --space 2; yabai -m space --focus 2
+shift + alt - 3 : yabai -m window --space 3; yabai -m space --focus 3
+shift + alt - 4 : yabai -m window --space 4; yabai -m space --focus 4
+
+# Navigation
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+# Moving windows
+shift + alt - h : yabai -m window --warp west
+shift + alt - j : yabai -m window --warp south
+shift + alt - k : yabai -m window --warp north
+shift + alt - l : yabai -m window --warp east
+
+
+# Restart Yabai
+shift + lctrl + alt - r : \
+    /usr/bin/env osascript <<< \
+        "display notification \"Restarting Yabai\" with title \"Yabai\""; \
+    launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+

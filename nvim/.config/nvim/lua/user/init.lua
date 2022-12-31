@@ -27,7 +27,7 @@ config = {
         },
 
         -- Set colorscheme to use
-        colorscheme = "catppuccin",
+        -- colorscheme = "catppuccin",
 
         -- Add highlight groups in any theme
         highlights = {
@@ -212,25 +212,25 @@ config = {
         -- Configure plugins
         plugins = {
                 init = {
-                        {
-                                "catppuccin/nvim",
-                                config = require("catppuccin").setup {
-                                        styles = {
-                                                comments = { "italic" },
-                                                conditionals = { "italic" },
-                                                loops = {},
-                                                functions = {},
-                                                keywords = {},
-                                                strings = {},
-                                                variables = {},
-                                                numbers = {},
-                                                booleans = {},
-                                                properties = {},
-                                                types = {},
-                                                operators = {},
-                                        },
-                                },
-                        },
+                        -- {
+                        --         "catppuccin/nvim",
+                        --         config = require("catppuccin").setup {
+                        --                 styles = {
+                        --                         comments = { "italic" },
+                        --                         conditionals = { "italic" },
+                        --                         loops = {},
+                        --                         functions = {},
+                        --                         keywords = {},
+                        --                         strings = {},
+                        --                         variables = {},
+                        --                         numbers = {},
+                        --                         booleans = {},
+                        --                         properties = {},
+                        --                         types = {},
+                        --                         operators = {},
+                        --                 },
+                        --         },
+                        -- },
 
                         {
                                 "kylechui/nvim-surround",
