@@ -3,6 +3,7 @@ alt - return : kitty --single-instance -d ~
 alt + shift - return : open -a Safari
 
 alt - w : skhd --key "cmd - w"
+alt - f : yabai -m window --toggle zoom-fullscreen
 
 alt - 1 : yabai -m space --focus 1
 alt - 2 : yabai -m space --focus 2
